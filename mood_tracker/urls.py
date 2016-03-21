@@ -21,5 +21,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	
 	url(r'^', include('mood.urls')),
-    url(r'^accounts/', include('allauth.urls')),
 ]

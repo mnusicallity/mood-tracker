@@ -10,3 +10,12 @@ class Profile(models.Model):
 
 	def __str__(self):
 		return str(self.user.get_username())
+
+class Day(models.Model):
+	date = models.DateField()
+	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return str(self.date)
+
+

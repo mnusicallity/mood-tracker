@@ -1,1 +1,17 @@
+{% extends "base.html" %}
 
+{% block head_title %} Profile {% endblock %}
+
+{% block content %}
+
+	<h1>{{ view.get_name }} </h1>
+
+	<ul>
+	{% for day in view.get_dayset %}
+		<li>
+			{{ day }}
+		</li>
+	{% endfor %}
+	</ul>
+
+{% endblock %}
