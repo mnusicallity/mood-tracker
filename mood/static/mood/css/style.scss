@@ -1,6 +1,11 @@
 $site-background-color: white;
 
 
+$entry-vertical-padding: 10px;
+$entry-horizontal-padding: 7px;
+$entry-panel-offset: 8px;
+
+
 
 body{
 	background-color: $site-background-color;
@@ -10,36 +15,97 @@ ul{
 	list-style: none;
 }
 
+.form-group{
+
+	.btn{
+		margin-top: 5px;
+	}
+}
+
+.entry_slider{
+	margin-bottom: 0px;
+}
+
+.outer {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+
+	.panel{
+		border: none;
+		box-shadow: none;
+	}
+
+	.panel-body{
+		padding-top: $entry-vertical-padding + $entry-panel-offset;
+		padding-left: $entry-horizontal-padding;
+		padding-right: $entry-horizontal-padding;
+		padding-bottom: $entry-vertical-padding;
+	}
+
+}
+
+.entry_label{
+	text-align: center;
+	text-transform: capitalize;
+}
+
 .slider_gutter{
 
-	padding-left: 20px;
-
 	.ui-slider{
-		width: 85%;
+		width: 78%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
 .slider_label{
+	margin-left: 5.7%;
 }
 
 .slider_label_inner{
+	padding-top: $entry-panel-offset;
 	display: inline-block;
 	text-align: center;
-	width: 9.3%;
-	font-size: 8pt;
+	width:9.5%;
+	font-size: 8.6pt;
+	margin-left: 2px;
+}
+
+.left{
+	margin-top: $entry-panel-offset;
+	display: inline-block;
+	width: 10%;
+	margin-left: 5.45%;
+
+}
+
+.right{
+	display:inline-block;
+	width: 88%;
 }
 
 .entry_field{
 	display: none;
 }
 
-.dropdown_tod{
+.content{
 
-	button, ul{
+}
+
+.button_fill{
+
+	button, ul, input{
 		width: 100%;
 	}
 
 	button{
 		display: block;
 	}
+}
+
+.equal, .equal > div[class*='col-'] {  
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
 }

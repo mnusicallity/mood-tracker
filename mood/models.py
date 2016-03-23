@@ -23,6 +23,8 @@ class Day(models.Model):
 
 class Entry(models.Model):
 
+	name = models.CharField(max_length=30, null=True, blank=True)
+
 	user = models.ForeignKey(
 		settings.AUTH_USER_MODEL,
 		on_delete=models.CASCADE,

@@ -25,6 +25,8 @@ class EntryAddForm(forms.ModelForm):
 		model = Entry
 		exclude = ['day','user']
 
+	name = forms.CharField(required=False, max_length=20, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add a Name for the Entry (Optional)'}))
+
 	tod = forms.ChoiceField(choices = TIME_OF_DAY_CHOICES, label = "Time of Day", required=True, widget=forms.Select(attrs={'class':'entry_field'}))
 
 	happiness_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))

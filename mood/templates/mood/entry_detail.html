@@ -6,6 +6,7 @@
 	
 	<ul>
 		<li> {{ object }} </li>
+		<li> {% if object.name %} {{ object.name }} {% endif %}
 		<li> {{ object.happiness_level }} </li>
 		<li> {{ object.anger_level }} </li>
 		<li> {{ object.anxiety_level }} </li>

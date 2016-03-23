@@ -1,0 +1,47 @@
+/* line 5, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+body {
+  background-color: white; }
+
+/* line 9, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+ul {
+  list-style: none; }
+
+/* line 15, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_gutter .ui-slider {
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 22, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_label {
+  margin-top: 5px;
+  margin-left: 6.5%; }
+
+/* line 27, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_label_inner {
+  display: inline-block;
+  text-align: center;
+  width: 9.8%;
+  font-size: 8pt; }
+
+/* line 34, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.left {
+  display: inline-block;
+  width: 10%; }
+
+/* line 39, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.right {
+  display: inline-block;
+  width: 88%; }
+
+/* line 44, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.entry_field {
+  display: none; }
+
+/* line 50, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.dropdown_tod button, .dropdown_tod ul {
+  width: 100%; }
+
+/* line 54, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.dropdown_tod button {
+  display: block; }
