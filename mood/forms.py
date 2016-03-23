@@ -25,10 +25,10 @@ class EntryAddForm(forms.ModelForm):
 		model = Entry
 		exclude = ['day','user']
 
-	tod = forms.ChoiceField(choices = TIME_OF_DAY_CHOICES, label="Time of Day", required=True)
+	tod = forms.ChoiceField(choices = TIME_OF_DAY_CHOICES, label = "Time of Day", required=True, widget=forms.Select(attrs={'class':'entry_field'}))
 
-	happiness = forms.IntegerField(label="Happiness Level:", widget=forms.TextInput(attrs={'class':'entry_field'}))
-	sadness = forms.IntegerField(label="Sadness Level:", widget=forms.TextInput(attrs={'class':'entry_field'}))
-	anger = forms.IntegerField(label="Anger/Disgust Level:", widget=forms.TextInput(attrs={'class':'entry_field'}))
-	fear = forms.IntegerField(label="Fear/Surpise Level:", widget=forms.TextInput(attrs={'class':'entry_field'}))
-	energy_level = forms.IntegerField(label="Energy Level:", widget=forms.TextInput(attrs={'class':'entry_field'}))
+	happiness_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))
+	motivation_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))
+	anger_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))
+	anxiety_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))
+	energy_level = forms.IntegerField(widget=forms.TextInput(attrs={'class':'entry_field'}))

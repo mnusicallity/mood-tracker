@@ -1,0 +1,15 @@
+/* line 5, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+body {
+  background-color: white; }
+
+/* line 9, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+ul {
+  list-style: none; }
+  /* line 15, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .slider_label_inner {
+    display: inline-block;
+    text-align: center;
+    width: 10.5%; }
+  /* line 21, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .entry_field {
+    display: none; }

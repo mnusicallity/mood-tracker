@@ -6,7 +6,6 @@ TIME_OF_DAY_CHOICES = (
 		)
 
 MOOD_RATING_CHOICES = (
-		(-5, -5),
 		(-4, -4),
 		(-3, -3),
 		(-2, -2),
@@ -16,5 +15,4 @@ MOOD_RATING_CHOICES = (
 		(2, 2),
 		(3, 3),
 		(4, 4),
-		(5, 5),
 	)

@@ -31,12 +31,12 @@ class Entry(models.Model):
 	tod = models.CharField(max_length=1, choices=TIME_OF_DAY_CHOICES)
 
 	day = models.ForeignKey(Day, on_delete=models.CASCADE)
-	happiness = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
-	sadness = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
-	anger = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
-	fear = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
 
+	happiness_level = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
+	anger_level = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
+	anxiety_level = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
 	energy_level = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
+	motivation_level = models.IntegerField(choices=MOOD_RATING_CHOICES, default=0)
 
 	
 	def __str__(self):

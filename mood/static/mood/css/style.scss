@@ -6,4 +6,43 @@ body{
 	background-color: $site-background-color;
 }
 
+ul{
+	list-style: none;
+}
 
+.slider_gutter{
+
+	width:50%;
+	padding-left: 20px;
+
+	.ui-slider{
+		width: 85%;
+	}
+}
+
+.slider_label{
+	width: 50%;
+}
+
+.slider_label_inner{
+	display: inline-block;
+	text-align: center;
+	width: 9.3%;
+	font-size: 8pt;
+}
+
+.entry_field{
+	display: none;
+}
+
+.dropdown_tod{
+	width: 50%;
+
+	button, ul{
+		width: 100%;
+	}
+
+	button{
+		display: block;	
+	}
+}

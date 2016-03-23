@@ -1,0 +1,26 @@
+/* line 5, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+body {
+  background-color: white; }
+
+/* line 9, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+ul {
+  list-style: none; }
+  /* line 13, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .ui-slider {
+    width: 45%; }
+    /* line 16, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+    ul .ui-slider .ui-slider-handle {
+      padding-left: 20px;
+      padding-right: 20px; }
+  /* line 22, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .slider_label {
+    width: 50%; }
+  /* line 26, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .slider_label_inner {
+    display: inline-block;
+    text-align: center;
+    width: 9.5%;
+    font-size: 8pt; }
+  /* line 33, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  ul .entry_field {
+    display: none; }

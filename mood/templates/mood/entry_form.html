@@ -2,19 +2,79 @@
 
 {% block head_title %}Add Entry{% endblock %}
 
+{% block extra_head %}
+
+{% load compress %}
+{% compress js %}
+    <script src="/static/mood/scripts/entry.js"></script>
+{% endcompress %}
+ {% endblock %}
+
+
 {% block content %}
 	
-	<form action="" method="post">{% csrf_token %}
-		<ul>
-			{{ view.asdf }}
-			<li> {{ form.tod.label }} : {{ form.tod }} </li>
-			<li> {{ form.happiness.label }} {{ form.happiness }} <div id="slider_happiness"></div> </li>
-			<li> {{ form.sadness.label }} {{ form.sadness }} <div id="slider_sadness"></div> </li>
-			<li> {{ form.anger.label }} {{ form.anger }} <div id="slider_anger"></div> </li>
-			<li> {{ form.fear.label }} {{ form.fear }} <div id="slider_fear"></div> </li>
-			<li> {{ form.energy_level.label }} {{ form.energy_level }} <div id="slider_energy_level"></div> </li>
-		</ul>
-    	<input type="submit" value="Save" />
+	<form action="" method="post" role="form">{% csrf_token %}
+			<div class="form-group"> 
+				<div class="dropdown dropdown_tod">
+				  <button class="btn btn-primary dropdown-toggle" id="tod_dropdown" type="button" data-toggle="dropdown">{{ form.tod.label }} 
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#" onclick="time_of_day('Morning');return false;">Morning</a></li>
+				    <li><a href="#" onclick="time_of_day('Afternoon');return false;">Afternoon</a></li>
+				    <li><a href="#" onclick="time_of_day('Evening');return false;">Evening</a></li>
+				    <li><a href="#" onclick="time_of_day('Night');return false;">Night</a></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="form-group"> 
+				{{ form.happiness_level.label }} 
+				<div class="slider_gutter">
+					<div id="slider_happiness_level">
+					</div>
+				</div>
+				{% include "mood/slider_label.html" %}
+			</div>
+			<div class="form-group">
+				 {{ form.anger_level.label }}
+				 <div class="slider_gutter">
+				 	<div id="slider_anger_level">
+				 	</div>
+				</div>
+				{% include "mood/slider_label.html" %}	
+			</div>
+			<div class="form-group">
+				 {{ form.anxiety_level.label }}  
+				 <div class="slider_gutter">
+				 	<div id="slider_anxiety_level">
+				 	</div> 
+				</div>
+				{% include "mood/slider_label.html" %}
+			</div>
+			<div class="form-group">
+				 {{ form.motivation_level.label }}  
+				 <div class="slider_gutter">
+				 	<div id="slider_motivation_level">
+				 	</div>
+				 </div> 
+				{% include "mood/slider_label.html" %}	
+			</div>
+			<div class="form-group">
+				 {{ form.energy_level.label }}  
+				 <div class="slider_gutter">
+				 	<div id="slider_energy_level">
+				 	</div>
+				 </div>
+				{% include "mood/slider_label.html" %} 
+			</div>
+			{{ form.tod }}
+			{{ form.happiness_level }}
+			{{ form.anger_level }}
+			{{ form.anxiety_level }}
+			{{ form.motivation_level }}
+			{{ form.energy_level }}   
+			<div class="form-group">
+				<input type="submit" value="Save" />
+			</div>
 	</form>
 
 
@@ -23,8 +83,8 @@
 	{% for field in form.fields %}
 		var slider_val =  $('#id_{{ field }}').val();
 		$( "#slider_{{ field }}" ).slider({
-			min: -5,
-			max: 5,
+			min: -4,
+			max: 4,
 			step: 1,
 		    value: slider_val,   
 		    slide: function( event, ui ) {

@@ -4,6 +4,13 @@
 
 {% block content %}
 	
-	<h1> {{ view.tod_display }} </h1>
+	<ul>
+		<li> {{ object }} </li>
+		<li> {{ object.happiness_level }} </li>
+		<li> {{ object.anger_level }} </li>
+		<li> {{ object.anxiety_level }} </li>
+		<li> {{ object.motivation_level }} </li>
+		<li> {{ object.energy_level }} </li>
+	</ul>
 
 {% endblock %}

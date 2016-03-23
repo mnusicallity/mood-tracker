@@ -70,18 +70,18 @@ class EntryCreate(LoginRequiredMixin, CreateView):
     def get_initial(self):
     	initial = super(EntryCreate, self).get_initial()
 
-    	initial['happiness']=0
-    	initial['sadness']=0
-    	initial['anger']=0
-    	initial['fear']=0
+    	initial['happiness_level']=0
+    	initial['motivation_level']=0
+    	initial['anger_level']=0
+    	initial['anxiety_level']=0
     	initial['energy_level']=0
     	entryset = Entry.objects.filter(user__id=self.request.user.id).order_by('-id')
     	if entryset:
     		e = entryset[0]
-	    	initial['happiness'] = e.happiness
-	    	initial['sadness']  = e.sadness
-	    	initial['anger'] = e.anger
-	    	initial['fear'] = e.fear
+	    	initial['happiness_level'] = e.happiness_level
+	    	initial['motivation_level']  = e.motivation_level
+	    	initial['anger_level'] = e.anger_level
+	    	initial['anxiety_level'] = e.anxiety_level
 	    	initial['energy_level'] = e.energy_level
     	
     	return initial
