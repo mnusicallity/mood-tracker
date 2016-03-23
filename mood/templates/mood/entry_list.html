@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ view.get_date }} {% endblock %}
+
+{% block content %}
+
+<ul>
+{% for entry in object_list %}
+	<a href="{% url 'entry' entry.pk %}">
+		<li>{{ entry }}</li>
+	</a>
+{% endfor %}
+
+</ul>
+
+<a href="{% url 'entry_add' view.get_day_id %}"> Add Entry </a>
+
+
+{% endblock %}

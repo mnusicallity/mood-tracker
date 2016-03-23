@@ -8,9 +8,11 @@
 
 	<ul>
 	{% for day in view.get_dayset %}
-		<li>
-			{{ day }}
-		</li>
+		<a href="{% url 'entry_list' day.id %}">
+			<li>
+				{{ day }}
+			</li>
+		</a>
 	{% endfor %}
 	</ul>
 

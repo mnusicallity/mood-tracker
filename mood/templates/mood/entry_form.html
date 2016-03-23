@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head_title %}Add Entry{% endblock %}
+
+{% block content %}
+	
+	<form action="" method="post">{% csrf_token %}
+		<ul>
+			{{ view.asdf }}
+			<li> {{ form.tod.label }} : {{ form.tod }} </li>
+			<li> {{ form.happiness.label }} {{ form.happiness }} <div id="slider_happiness"></div> </li>
+			<li> {{ form.sadness.label }} {{ form.sadness }} <div id="slider_sadness"></div> </li>
+			<li> {{ form.anger.label }} {{ form.anger }} <div id="slider_anger"></div> </li>
+			<li> {{ form.fear.label }} {{ form.fear }} <div id="slider_fear"></div> </li>
+			<li> {{ form.energy_level.label }} {{ form.energy_level }} <div id="slider_energy_level"></div> </li>
+		</ul>
+    	<input type="submit" value="Save" />
+	</form>
+
+
+	<script>
+	// generate the slider code for each one automatically
+	{% for field in form.fields %}
+		var slider_val =  $('#id_{{ field }}').val();
+		$( "#slider_{{ field }}" ).slider({
+			min: -5,
+			max: 5,
+			step: 1,
+		    value: slider_val,   
+		    slide: function( event, ui ) {
+		        $('#id_{{ field }}').val(ui.value);
+		    }
+		});
+	{% endfor %}
+	</script>
+
+{% endblock %}
