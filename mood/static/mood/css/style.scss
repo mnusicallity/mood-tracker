@@ -1,25 +1,37 @@
-$site-background-color: white;
+$site-background-color: #28B8A9;
+$site-content-background-color: #F2FDFC;
+
+$bootstrap-primary-color: #009989;
+$bootstrap-primary-border-color: #008073;
+$bootstrap-primary-color-selected: #008073;
+$bootstrap-primary-text-color: white;
+
+$bootstrap-success-color: #2CCC68;
+$bootstrap-success-border-color: #00B242;
+$bootstrap-success-color-selected: #00B242;
+$bootstrap-success-text-color: white;
+
+$bootstrap-danger-color: #e6261a;
+$bootstrap-danger-border-color: #E6261A;
+$bootstrap-danger-color-selected: #a11b12;
+$bootstrap-danger-text-color: white;
 
 
 $entry-vertical-padding: 10px;
-$entry-horizontal-padding: 7px;
-$entry-panel-offset: 8px;
+$entry-horizontal-padding: 0px;
+$entry-panel-offset: 10px;
+
+$content-size: 90%;
 
 
 
 body{
 	background-color: $site-background-color;
+	font-family: 'Open Sans', sans-serif;
 }
 
 ul{
 	list-style: none;
-}
-
-.form-group{
-
-	.btn{
-		margin-top: 5px;
-	}
 }
 
 .entry_slider{
@@ -46,7 +58,6 @@ ul{
 }
 
 .entry_label{
-	text-align: center;
 	text-transform: capitalize;
 }
 
@@ -60,23 +71,23 @@ ul{
 }
 
 .slider_label{
-	margin-left: 5.7%;
+	margin-left: 9%;
 }
 
 .slider_label_inner{
 	padding-top: $entry-panel-offset;
 	display: inline-block;
-	text-align: center;
 	width:9.5%;
 	font-size: 8.6pt;
 	margin-left: 2px;
+	vertical-align: top;
 }
 
 .left{
 	margin-top: $entry-panel-offset;
 	display: inline-block;
 	width: 10%;
-	margin-left: 5.45%;
+	margin-left: 3.45%;
 
 }
 
@@ -88,10 +99,88 @@ ul{
 .entry_field{
 	display: none;
 }
-
-.content{
-
+//kludge for now, gonna get the LESS bootstrap and make my own buttons later.
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+ 	background-color: $bootstrap-primary-color-selected !important;
+	border-color: $bootstrap-primary-border-color !important;
+	color: $bootstrap-primary-text-color !important;
 }
+
+.btn-primary{
+	background-color: $bootstrap-primary-color;
+	border-color: $bootstrap-primary-border-color;
+	color: $bootstrap-primary-text-color;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active {
+ 	background-color: $bootstrap-success-color-selected !important;
+	border-color: $bootstrap-success-border-color !important;
+	color: $bootstrap-success-text-color !important;
+}
+
+.btn-success{
+	background-color: $bootstrap-success-color;
+	border-color: $bootstrap-success-border-color;
+	color: $bootstrap-success-text-color;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active {
+ 	background-color: $bootstrap-danger-color-selected !important;
+	border-color: $bootstrap-danger-border-color !important;
+	color: $bootstrap-danger-text-color !important;
+}
+
+.btn-danger{
+	background-color: $bootstrap-danger-color;
+	border-color: $bootstrap-danger-border-color;
+	color: $bootstrap-danger-text-color;
+}
+
+.content_box{
+
+	h1{
+		font-weight: bold;
+		margin-top: 13px;
+	}
+
+	background-color: $site-content-background-color;
+	min-height: 100vh;
+	height: 100%;
+
+	.content_size{
+		width: $content-size;
+	}
+
+	div{
+		background-color: $site-content-background-color;
+	}
+
+	.btn_change{
+
+		text-align: center;
+
+		.btn{
+				width: 32.3%;
+		}
+	}	
+}
+
+.row{
+
+	.btn, textarea{
+		margin-top: 5px;
+	}
+}
+
 
 .button_fill{
 
@@ -108,4 +197,14 @@ ul{
     display: -webkit-flex;
     display: flex;
     flex:1 1 auto;
+}
+
+.entry_fields {
+	margin-top: 5px;
+}
+
+.left_margin{
+	@media only screen and (min-width:1000px){
+		margin-left: 15px;
+	}
 }
