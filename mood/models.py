@@ -4,27 +4,18 @@ from django.core.urlresolvers import reverse
 
 from mood.choices import *
 
-class Profile(models.Model):
-	user = models.OneToOneField(
+class Day(models.Model):
+	date = models.DateField()
+	user = models.ForeignKey(
 		settings.AUTH_USER_MODEL,
 		on_delete=models.CASCADE,
         )
-	description = models.TextField('Add a Description')
-
-	def __str__(self):
-		return str(self.user.get_username())
-
-class Day(models.Model):
-	date = models.DateField()
-	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return str(self.date)
 
 class Entry(models.Model):
-
 	description = models.CharField(max_length=200, null=True, blank=True)
-
 	user = models.ForeignKey(
 		settings.AUTH_USER_MODEL,
 		on_delete=models.CASCADE,

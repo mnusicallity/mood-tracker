@@ -12,8 +12,10 @@
 
 
 {% block content %}
+	<div class="content_size">
 	<h1 class="left_margin"> Update Entry for {{ view.get_date }} in the {{ view.tod_display }} </h1>
 	<form action="" method="post" role="form">{% csrf_token %}
+		<form action="" method="post" role="form">{% csrf_token %}
 		<div class="form-group"> 
 			<div class="row">
 				<div class="outer panel-group equal">
@@ -22,70 +24,64 @@
 							{{ form.happiness_level.label }}
 						</div>
 					</div>
-					<div class="panel panel-default right equal">
-						<div class="slider_gutter panel-body">
-							<div id="slider_happiness_level">
+					<div class="panel panel-default right equal col-md-5">
+							<div id="slider_happiness_level" class="col-md-5">
 							</div>
-						{% include "mood/slider_label.html" %}
-						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
 				<div class="outer panel-group equal">
 					<div class="panel panel-default left">
 						<div class="panel-body entry_label">
 							{{ form.anger_level.label }}
 						</div>
 					</div>
-					<div class="panel panel-default right equal">
-						<div class="slider_gutter panel-body">
-							<div id="slider_anger_level">
+					<div class="panel panel-default right equal col-md-5">
+							<div id="slider_anger_level" class="col-md-5">
 							</div>
-						{% include "mood/slider_label.html" %}
-						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
 				<div class="outer panel-group equal">
 					<div class="panel panel-default left">
 						<div class="panel-body entry_label">
 							{{ form.anxiety_level.label }}
 						</div>
 					</div>
-					<div class="panel panel-default right equal">
-						<div class="slider_gutter panel-body">
-							<div id="slider_anxiety_level">
+					<div class="panel panel-default right equal col-md-5">
+							<div id="slider_anxiety_level" class="col-md-5">
 							</div>
-						{% include "mood/slider_label.html" %}
-						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
 				<div class="outer panel-group equal">
 					<div class="panel panel-default left">
 						<div class="panel-body entry_label">
 							{{ form.motivation_level.label }}
 						</div>
 					</div>
-					<div class="panel panel-default right equal">
-						<div class="slider_gutter panel-body">
-							<div id="slider_motivation_level">
+					<div class="panel panel-default right equal col-md-5">
+							<div id="slider_motivation_level" class="col-md-5">
 							</div>
-						{% include "mood/slider_label.html" %}
-						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
 				<div class="outer panel-group equal">
 					<div class="panel panel-default left">
 						<div class="panel-body entry_label">
 							{{ form.energy_level.label }}
 						</div>
 					</div>
-					<div class="panel panel-default right equal">
-						<div class="slider_gutter panel-body">
-							<div id="slider_energy_level">
+					<div class="panel panel-default right equal col-md-5">
+							<div id="slider_energy_level" class="col-md-5">
 							</div>
-						{% include "mood/slider_label.html" %}
-						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 				<div class="row">
 					<div class="dropdown entry_fields button_fill col-md-6">
@@ -110,7 +106,7 @@
 				</div>
 			</div>
 			<div class="row">   
-				<div class="col-md-6 left_margin btn_change">
+				<div class="col-md-6 left_margin entry_update_buttons">
 					<input type="submit" value="Save" class="btn btn-success"/>
 					<input type="button" value="Back" class="btn btn-info" onClick="javascript:history.go(-1);"/>
 					<a class="btn btn-danger" href="{% url 'entry_delete' object.pk %}"/>Delete</a>
@@ -118,6 +114,7 @@
 			</div>
 		</form>
 	</div>
+</div>
 {% endblock %}
 
 {% block extra_body %}
@@ -129,9 +126,71 @@
 			min: -4,
 			max: 4,
 			step: 1,
-		    value: slider_val,   
+		    value: slider_val, 
 		    slide: function( event, ui ) {
 		        $('#id_{{ field }}').val(ui.value);
+		        switch(ui.value){
+		        	case -4:
+		        		$(this).find('div').text('----');
+		        		break;
+		        	case -3:
+		        		$(this).find('div').text('---');
+		        		break;
+		        	case -2:
+		        		$(this).find('div').text('--');
+		        		break;
+		        	case -1:
+		        		$(this).find('div').text('-');
+		        		break;
+		        	case 0: 
+		        		$(this).find('div').text('Normal');
+		        		break;
+		        	case 1:
+		        		$(this).find('div').text('+');
+		        		break;
+		        	case 2:
+		        		$(this).find('div').text('++');
+		        		break;
+		        	case 3:
+		        		$(this).find('div').text('+++');
+		        		break;
+		        	case 4:
+		        		$(this).find('div').text('++++');
+		        		break;
+		        }
+		    },
+		    create: function( event, ui ){
+		    	$(this).find('span').html('<div class="slider_handle"></div>');
+		    	x = $('#id_{{ field }}').val();
+				switch(x){
+		        	case "-4":
+		        		$(this).find('div').text('----');
+		        		break;
+		        	case "-3":
+		        		$(this).find('div').text('---');
+		        		break;
+		        	case "-2":
+		        		$(this).find('div').text('--');
+		        		break;
+		        	case "-1":
+		        		$(this).find('div').text('-');
+		        		break;
+		        	case "0": 
+		        		$(this).find('div').text('Normal');
+		        		break;
+		        	case "1":
+		        		$(this).find('div').text('+');
+		        		break;
+		        	case "2":
+		        		$(this).find('div').text('++');
+		        		break;
+		        	case "3":
+		        		$(this).find('div').text('+++');
+		        		break;
+		        	case "4":
+		        		$(this).find('div').text('++++');
+		        		break;
+		        }
 		    }
 		});
 	{% endfor %}

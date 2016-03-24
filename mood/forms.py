@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 
-from mood.models import Profile, Day, Entry
+from mood.models import Day, Entry
 
 from mood.choices import *
 
@@ -17,8 +17,6 @@ class SignupForm(forms.ModelForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.save()
-        p = Profile(user=user, description="")
-        p.save()
 
 class EntryAddForm(forms.ModelForm):
 	class Meta:

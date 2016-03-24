@@ -8,7 +8,7 @@ from django.http import Http404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
-from mood.models import Profile, Day, Entry
+from mood.models import Day, Entry
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -36,8 +36,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
 	def get_dayset(self):
 		u = self.request.user
-		p = (Profile.objects.filter(user__id=u.id))[0]
-		dayset = Day.objects.filter(profile__id=p.id).order_by('-date')[:5]
+		dayset = Day.objects.filter(user__id=u.id).order_by('-date')[:5]
 		return dayset
 
 class EntryListView(LoginRequiredMixin, ListView):
