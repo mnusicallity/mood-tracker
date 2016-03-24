@@ -24,20 +24,15 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
 	def get_username(self):
 		return self.request.user.get_username()
-		
-	def get_desc(self):
-		u = self.request.user
-		p = Profile.objects.filter(user__id=u.id)
-		return p[0].description
-	
+
 	def get_name(self):
 		u = self.request.user
-		return u.first_name + " " + u.last_name
+		return u.get_full_name()
 
-	def get_dayset(self):
+	def get_latest_entry(self):
 		u = self.request.user
-		dayset = Day.objects.filter(user__id=u.id).order_by('-date')[:5]
-		return dayset
+		e = Entry.objects.filter(user__id=u.id).latest('id')
+		return e
 
 class EntryListView(LoginRequiredMixin, ListView):
 
@@ -83,7 +78,7 @@ class EntryCreate(LoginRequiredMixin, CreateView):
 	    	initial['anger_level'] = e.anger_level
 	    	initial['anxiety_level'] = e.anxiety_level
 	    	initial['energy_level'] = e.energy_level
-    	
+
     	return initial
 
     def get_date(self):
@@ -100,7 +95,7 @@ class EntryDelete(LoginRequiredMixin, DeleteView):
 
 	model = Entry
 	success_url = "/accounts/profile"
-    	
+
 
 class EntryUpdate(LoginRequiredMixin, UpdateView):
 
@@ -144,11 +139,3 @@ class EntryUpdate(LoginRequiredMixin, UpdateView):
 			"N":3,
 		}
 		return str(switch.get(tod))
-
-
-
-
-
-
-
-		

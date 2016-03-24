@@ -1,19 +1,27 @@
 {% extends "base.html" %}
 
-{% block head_title %} Profile {% endblock %}
+{% block head_title %} Profile for {{ view.get_name }} {% endblock %}
 
 {% block content %}
 
-	<h1>{{ view.get_name }} </h1>
+	<div class="content_size">
+		<div class="row-fluid">
+			<h1>{{ view.get_name }}</h1>
+		</div>
+		<div class="row-fluid">
+			<div class="col-md-offset-1 col-md-10">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Latest Mood Entry
+						</div>
+						<div class="panel-body">
+							asdasds
+						</div>
+					</div>
+			</div>
+		</div>
 
-	<ul>
-	{% for day in view.get_dayset %}
-		<a href="{% url 'entry_list' day.id %}">
-			<li>
-				{{ day }}
-			</li>
-		</a>
-	{% endfor %}
-	</ul>
+	</div>
+
 
 {% endblock %}
