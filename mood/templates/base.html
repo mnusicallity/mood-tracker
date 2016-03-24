@@ -3,17 +3,26 @@
   <head>
     {% load staticfiles %}
     {% load compress %}
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+    {% compress js %}
+      <script src="{% static "mood/bootstrap/js/bootstrap.min.js" %}"></script>
+    {% endcompress %}
+
     {% compress css %}
+      <link rel="stylesheet" type="text/x-scss" href="{% static "mood/bootstrap/css/bootstrap.min.css" %}" />
+      <link rel="stylesheet" type="text/x-scss" href="{% static "mood/bootstrap/css/bootstrap-theme.min.css" %}" />
       <link rel="stylesheet" type="text/x-scss" href="{% static "mood/css/style.scss" %}" />
     {% endcompress %}
+
+
+
+
 
 
     <title>{% block head_title %}{% endblock %}</title>
@@ -24,7 +33,7 @@
     {% block body %}
       <div class="container-fluid">
         <div class="row">
-            <div class="col-md-offset-2 col-md-8 content_box">  
+            <div class="col-md-offset-2 col-md-8 content_box">
             {% block content %}
             {% endblock %}
           </div>

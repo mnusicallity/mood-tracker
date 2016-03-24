@@ -1,4 +1,4 @@
-#!/Users/lucasmarcelli/Desktop/Dev/mood_tracker/moodenv/bin/python
+#!/home/lucas/Desktop/Dev/mood-tracker/moodenv/bin/python
 
 import sys
 import getopt

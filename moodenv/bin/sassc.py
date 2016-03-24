@@ -1,4 +1,4 @@
-#!/Users/lucasmarcelli/Desktop/Dev/mood_tracker/moodenv/bin/python3
+#!/home/lucas/Desktop/Dev/mood-tracker/moodenv/bin/python3
 """:mod:`sassc` --- SassC compliant command line interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -3,25 +3,7 @@
 	@return #{$em}em;
 }
 
-
-$site-background-color: #28B8A9;
 $site-content-background-color: #F2FDFC;
-
-$bootstrap-primary-color: #009989;
-$bootstrap-primary-border-color: #008073;
-$bootstrap-primary-color-selected: #008073;
-$bootstrap-primary-text-color: white;
-
-$bootstrap-success-color: #2CCC68;
-$bootstrap-success-border-color: #00B242;
-$bootstrap-success-color-selected: #00B242;
-$bootstrap-success-text-color: white;
-
-$bootstrap-danger-color: #e6261a;
-$bootstrap-danger-border-color: #E6261A;
-$bootstrap-danger-color-selected: #a11b12;
-$bootstrap-danger-text-color: white;
-
 
 $entry-vertical-padding: 10px;
 $entry-horizontal-padding: 0px;
@@ -32,10 +14,7 @@ $content-size: 92%;
 $slider-handle-size: 7pt;
 
 
-
-
 body{
-	background-color: $site-background-color;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -65,8 +44,7 @@ ul{
 
 .ui-slider{
 	width: 78%;
-	font-size: $slider-handle-size;
-	height: 1.5em;
+	height: 1em;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -74,15 +52,16 @@ ul{
 		width: 5em;
 		height: 2em;
 		margin-left: -3em;
+		font-size: $slider-handle-size;
 	}
 
 	.slider_handle{
 		background-color: #e6e6e6;
 		text-align: center;
 		vertical-align: middle;
-		font-size: $slider-handle-size + 1;
+		font-size: $slider-handle-size;
 		word-wrap: break-word;
-		padding-top: .165em;
+		padding-top: 0.2em;
 
 	}
 
@@ -90,7 +69,8 @@ ul{
 			font-size: $slider-handle-size + 3;
 
 			.slider_handle{
-				font-size: $slider-handle-size + 4;
+				padding-top: 0px;
+				font-size: $slider-handle-size + 2;
 			}
 	}
 }
@@ -106,51 +86,6 @@ ul{
 
 .entry_field{
 	display: none;
-}
-//kludge for now, gonna get the LESS bootstrap and make my own buttons later.
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active {
- 	background-color: $bootstrap-primary-color-selected !important;
-	border-color: $bootstrap-primary-border-color !important;
-	color: $bootstrap-primary-text-color !important;
-}
-
-.btn-primary{
-	background-color: $bootstrap-primary-color;
-	border-color: $bootstrap-primary-border-color;
-	color: $bootstrap-primary-text-color;
-}
-
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active,
-.btn-success.active {
- 	background-color: $bootstrap-success-color-selected !important;
-	border-color: $bootstrap-success-border-color !important;
-	color: $bootstrap-success-text-color !important;
-}
-
-.btn-success{
-	background-color: $bootstrap-success-color;
-	border-color: $bootstrap-success-border-color;
-	color: $bootstrap-success-text-color;
-}
-
-.btn-danger:hover,
-.btn-danger:focus,
-.btn-danger:active,
-.btn-danger.active {
- 	background-color: $bootstrap-danger-color-selected !important;
-	border-color: $bootstrap-danger-border-color !important;
-	color: $bootstrap-danger-text-color !important;
-}
-
-.btn-danger{
-	background-color: $bootstrap-danger-color;
-	border-color: $bootstrap-danger-border-color;
-	color: $bootstrap-danger-text-color;
 }
 
 .content_box{
@@ -250,6 +185,9 @@ ul{
 
 	.btn, textarea{
 		margin-top: 5px;
+		box-shadow: none;
+		text-shadow: none;
+		background-image: none;
 	}
 }
 

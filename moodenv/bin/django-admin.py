@@ -1,4 +1,4 @@
-#!/Users/lucasmarcelli/Desktop/Dev/mood_tracker/moodenv/bin/python3
+#!/home/lucas/Desktop/Dev/mood-tracker/moodenv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

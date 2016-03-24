@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/lucasmarcelli/Desktop/Dev/mood_tracker/moodenv"
+VIRTUAL_ENV="/home/lucas/Desktop/Dev/mood-tracker/moodenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
