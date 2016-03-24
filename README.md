@@ -45,7 +45,7 @@ ensure you start the server
 
 `source moodenv/bin/activate`
 
-`pip install -r requirements.txt'
+`pip install -r requirements.txt`
 
 ##Step 5:
 `python manage.py makemigrations`
