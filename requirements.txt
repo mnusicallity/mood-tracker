@@ -1,0 +1,6 @@
+django
+mysqlclient
+libsass
+django_compressor
+django-libsass
+django-allauth
