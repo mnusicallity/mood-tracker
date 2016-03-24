@@ -61,8 +61,6 @@ follow the instructions to create superuser
 go to 127.0.0.1:8000
 
 #Everytime you want to dev you MUST
-`virtualenv moodenv`
-
 `source moodenv/bin/activate`
 
 first
