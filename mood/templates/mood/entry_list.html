@@ -6,7 +6,7 @@
 
 <ul>
 {% for entry in object_list %}
-	<a href="{% url 'entry' entry.pk %}">
+	<a href="{% url 'entry_edit' entry.pk %}">
 		<li>{{ entry }}</li>
 	</a>
 {% endfor %}

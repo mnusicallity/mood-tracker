@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block head_title %}Add Entry{% endblock %}
+
+{% block extra_head %}
+
+{% load compress %}
+{% compress js %}
+    <script src="/static/mood/scripts/entry.js"></script>
+{% endcompress %}
+ {% endblock %}
+
+
+{% block content %}
+	<h1 class="left_margin"> Update Entry for {{ view.get_date }} in the {{ view.tod_display }} </h1>
+	<form action="" method="post" role="form">{% csrf_token %}
+		<div class="form-group"> 
+			<div class="row">
+				<div class="outer panel-group equal">
+					<div class="panel panel-default left">
+						<div class="panel-body entry_label">
+							{{ form.happiness_level.label }}
+						</div>
+					</div>
+					<div class="panel panel-default right equal">
+						<div class="slider_gutter panel-body">
+							<div id="slider_happiness_level">
+							</div>
+						{% include "mood/slider_label.html" %}
+						</div>
+					</div>
+				</div>
+				<div class="outer panel-group equal">
+					<div class="panel panel-default left">
+						<div class="panel-body entry_label">
+							{{ form.anger_level.label }}
+						</div>
+					</div>
+					<div class="panel panel-default right equal">
+						<div class="slider_gutter panel-body">
+							<div id="slider_anger_level">
+							</div>
+						{% include "mood/slider_label.html" %}
+						</div>
+					</div>
+				</div>
+				<div class="outer panel-group equal">
+					<div class="panel panel-default left">
+						<div class="panel-body entry_label">
+							{{ form.anxiety_level.label }}
+						</div>
+					</div>
+					<div class="panel panel-default right equal">
+						<div class="slider_gutter panel-body">
+							<div id="slider_anxiety_level">
+							</div>
+						{% include "mood/slider_label.html" %}
+						</div>
+					</div>
+				</div>
+				<div class="outer panel-group equal">
+					<div class="panel panel-default left">
+						<div class="panel-body entry_label">
+							{{ form.motivation_level.label }}
+						</div>
+					</div>
+					<div class="panel panel-default right equal">
+						<div class="slider_gutter panel-body">
+							<div id="slider_motivation_level">
+							</div>
+						{% include "mood/slider_label.html" %}
+						</div>
+					</div>
+				</div>
+				<div class="outer panel-group equal">
+					<div class="panel panel-default left">
+						<div class="panel-body entry_label">
+							{{ form.energy_level.label }}
+						</div>
+					</div>
+					<div class="panel panel-default right equal">
+						<div class="slider_gutter panel-body">
+							<div id="slider_energy_level">
+							</div>
+						{% include "mood/slider_label.html" %}
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="row">
+					<div class="dropdown entry_fields button_fill col-md-6">
+						  <button class="btn btn-primary dropdown-toggle left_margin" id="tod_dropdown" type="button" data-toggle="dropdown"> <span class="caret"></span></button>
+						  <ul class="dropdown-menu">
+						    <li><a href="#" onclick="time_of_day('Morning');return false;">Morning</a></li>
+						    <li><a href="#" onclick="time_of_day('Afternoon');return false;">Afternoon</a></li>
+						    <li><a href="#" onclick="time_of_day('Evening');return false;">Evening</a></li>
+						    <li><a href="#" onclick="time_of_day('Night');return false;">Night</a></li>
+						  </ul>
+					</div>
+				</div>
+				{{ form.tod }}
+				{{ form.happiness_level }}
+				{{ form.anger_level }}
+				{{ form.anxiety_level }}
+				{{ form.motivation_level }}
+				{{ form.energy_level }}
+			<div class="row">
+				<div class="col-md-6 left_margin">
+					{{ form.description }}
+				</div>
+			</div>
+			<div class="row">   
+				<div class="col-md-6 left_margin btn_change">
+					<input type="submit" value="Save" class="btn btn-success"/>
+					<input type="button" value="Back" class="btn btn-info" onClick="javascript:history.go(-1);"/>
+					<a class="btn btn-danger" href="{% url 'entry_delete' object.pk %}"/>Delete</a>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}
+
+{% block extra_body %}
+	<script>
+	// generate the slider code for each one automatically
+	{% for field in form.fields %}
+		var slider_val =  $('#id_{{ field }}').val();
+		$( "#slider_{{ field }}" ).slider({
+			min: -4,
+			max: 4,
+			step: 1,
+		    value: slider_val,   
+		    slide: function( event, ui ) {
+		        $('#id_{{ field }}').val(ui.value);
+		    }
+		});
+	{% endfor %}
+	$(document).ready(function(){ 
+		$(".dropdown-menu li a")[{{ view.tod_num }}].click();
+	});
+	</script>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+/* line 18, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+body {
+  background-color: #28B8A9;
+  font-family: 'Open Sans', sans-serif; }
+
+/* line 23, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+ul {
+  list-style: none; }
+
+/* line 27, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.row {
+  margin-top: 5px; }
+
+/* line 31, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.entry_slider {
+  margin-bottom: 0px; }
+
+/* line 35, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.outer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px; }
+  /* line 40, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .outer .panel {
+    border: none;
+    box-shadow: none; }
+  /* line 45, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .outer .panel-body {
+    padding-top: 22px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 10px; }
+
+/* line 54, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.entry_label {
+  text-align: center;
+  text-transform: capitalize; }
+
+/* line 61, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_gutter .ui-slider {
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 68, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_label {
+  margin-left: 5.7%; }
+
+/* line 72, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.slider_label_inner {
+  padding-top: 12px;
+  display: inline-block;
+  text-align: center;
+  width: 9.5%;
+  font-size: 8.6pt;
+  margin-left: 2px;
+  vertical-align: top; }
+
+/* line 82, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.left {
+  margin-top: 12px;
+  display: inline-block;
+  width: 10%;
+  margin-left: 3.45%; }
+
+/* line 90, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.right {
+  display: inline-block;
+  width: 88%; }
+
+/* line 95, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.entry_field {
+  display: none; }
+
+/* line 100, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.btn-primary {
+  background-color: #009989;
+  border-color: #008073;
+  color: white; }
+
+/* line 106, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #008073;
+  border-color: #008073;
+  color: white; }
+
+/* line 113, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.content_box {
+  background-color: #F2FDFC;
+  min-height: 100vh;
+  height: 100%; }
+  /* line 115, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .content_box h1 {
+    font-weight: bold; }
+  /* line 123, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .content_box .content_size {
+    width: 90%; }
+  /* line 127, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .content_box div {
+    background-color: #F2FDFC; }
+
+/* line 135, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.button_fill button, .button_fill ul, .button_fill input {
+  width: 100%; }
+
+/* line 139, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.button_fill button {
+  display: block; }
+
+/* line 144, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+.equal, .equal > div[class*='col-'] {
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto; }
+
+@media only screen and (min-width: 1000px) {
+  /* line 150, /Users/lucasmarcelli/Desktop/Dev/mood_tracker/mood/static/mood/css/style.scss */
+  .left_margin {
+    margin-left: 15px; } }

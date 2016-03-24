@@ -12,7 +12,7 @@ from mood.models import Profile, Day, Entry
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from mood.forms import EntryAddForm
+from mood.forms import EntryAddForm, EntryUpdateForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -66,6 +66,7 @@ class EntryCreate(LoginRequiredMixin, CreateView):
 
     model = Entry
     form_class = EntryAddForm
+    success_url = "/accounts/profile"
 
     def get_initial(self):
     	initial = super(EntryCreate, self).get_initial()
@@ -86,28 +87,64 @@ class EntryCreate(LoginRequiredMixin, CreateView):
     	
     	return initial
 
+    def get_date(self):
+    	d = Day.objects.get(pk=self.kwargs.get('pk'))
+    	return d.date
+
     def form_valid(self, form):
     	f = form.save(commit=False)
     	f.day = Day.objects.get(pk=self.kwargs.get('pk'))
     	f.user = self.request.user
-    	return super(EntryCreate,self).form_valid(form)
-    	
+    	return super(EntryCreate, self).form_valid(form)
 
-class EntryView(LoginRequiredMixin, DetailView):
+class EntryDelete(LoginRequiredMixin, DeleteView):
 
 	model = Entry
+	success_url = "/accounts/profile"
+    	
+
+class EntryUpdate(LoginRequiredMixin, UpdateView):
+
+	model = Entry
+	form_class = EntryUpdateForm
+	template_name = "mood/entry_update.html"
+	success_url = "/accounts/profile"
 
 	def dispatch(self, request, *args, **kwargs):
-		e = Entry.objects.get(pk=self.kwargs['pk'])
+		e = Entry.objects.get(pk=self.kwargs.get('pk'))
 		if e.user_id == request.user.id:
-			return super(EntryView, self).dispatch(request, *args, **kwargs)
+			return super(EntryUpdate, self).dispatch(request, *args, **kwargs)
 		else:
 			raise Http404("Not Found")
 
+	def get_initial(self):
+		initial = super(EntryUpdate, self).get_initial()
+		e = Entry.objects.get(pk=self.kwargs.get('pk'))
+		initial['happiness_level'] = e.happiness_level
+		initial['motivation_level']  = e.motivation_level
+		initial['anger_level'] = e.anger_level
+		initial['anxiety_level'] = e.anxiety_level
+		initial['energy_level'] = e.energy_level
+		return initial
+
+	def get_date(self):
+		d = Day.objects.get(entry__id=self.kwargs.get('pk'))
+		return d.date
 
 	def tod_display(self):
-		e = Entry.objects.get(pk=self.kwargs['pk'])
+		e = Entry.objects.get(pk=self.kwargs.get('pk'))
 		return e.get_tod_display()
+
+	def tod_num(self):
+		e = Entry.objects.get(pk=self.kwargs.get('pk'))
+		tod = e.tod
+		switch = {
+			"M":0,
+			"A":1,
+			"E":2,
+			"N":3,
+		}
+		return str(switch.get(tod))
 
 
 
