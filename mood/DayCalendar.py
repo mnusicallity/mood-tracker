@@ -6,10 +6,11 @@ from django.utils.html import conditional_escape as esc
 
 class DayCalendar(HTMLCalendar):
 
-	def __init__(self, dayset, user_id):
+	def __init__(self, dayset, data):
 		super(DayCalendar, self).__init__()
 		self.dayset = self.group_by_day(dayset)
-		self.user_id = user_id
+		self.kwargs = data.kwargs
+		self.data = data
 
 	def formatday(self, day, weekday):
 		if day != 0:
@@ -26,7 +27,7 @@ class DayCalendar(HTMLCalendar):
 					return self.day_cell(cssclass, '%d %s' % (day, ''.join(body)))
 				body = []
 				body.append('<p>')
-				body.append('<a href="%s" class="add_link">' % ('/day/add/' + str(self.user_id)))
+				body.append('<a href="%s" class="add_link">' % ('/%s/%s/%i/add/%s' % (self.kwargs.get('year'), self.kwargs.get('month'), day, self.data.request.user.id)))
 				body.append('Click to add</a>')
 				body.append('</p>')
 				return self.day_cell(cssclass, '%d %s' % (day, ''.join(body)))

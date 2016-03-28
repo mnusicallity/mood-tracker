@@ -146,7 +146,7 @@ USE_TZ = True
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/accounts/profile'
+LOGIN_REDIRECT_URL = '/accounts/login_successful'
 
 ACCOUNT_EMAIL_REQUIRED = True
 

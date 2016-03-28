@@ -16,85 +16,9 @@
 		<div class="row-fluid">
 			<h1>{{ view.get_name }}</h1>
 		</div>
-		<div class="row-fluid">
+		<div class="row-fluid not_today">
 			<div class="col-md-12">
-				<div class="panel panel-primary latest_date_panel">
-					<div class="panel-heading row-fluid not_today">
-						<h2 class="panel-title pull-left">Latest Date Tracked: {{ latest_date }}.</h2>
-						<div class="pull-right btn-group">
-							<a class="btn btn-info" href="">
-								Track New Day
-							</a>
-							<a class="btn btn-info" href="{% url 'entry_add' latest_day.id %}">
-								Add Entry to Day
-							</a>
-						</div>
-					</div>
-					<div class="panel-heading row-fluid today">
-						<h2>Today: {{ latest_date }}.</h2>
-					</div>
-					{% for latest_entry in latest_entryset %}
-					<div class="panel-body row">
-						<div class="content_size">
-						<div class="row-fluid">
-							<div class="col-sm-offset-1 latest_date">
-								<h2>{{ latest_entry }}</h2>
-							</div>
-						</div>
-						{% if latest_entry.description %}
-						<div class="row">
-							<div class="col-sm-offset-1 col-sm-10 latest_desc">
-								<h4>{{ latest_entry.description }}</h4>
-							</div>
-						</div>
-					{% endif %}
-						<div class="row-fluid">
-							<div class="panel-group">
-							<div class="col-sm-offset-1 col-sm-2 info_panel">
-								<div class="panel panel-info">
-									<div class="panel-heading row-fluid">Happiness</div>
-									<div class="panel-body latest row-fluid">{{ latest_entry.happiness_level }}</div>
-								</div>
-							</div>
-							<div class="col-sm-2 info_panel">
-								<div class="panel panel-info">
-									<div class="panel-heading row-fluid">Anger</div>
-									<div class="panel-body latest row-fluid">{{ latest_entry.anger_level }}</div>
-								</div>
-							</div>
-							<div class="col-sm-2 info_panel">
-								<div class="panel panel-info">
-									<div class="panel-heading row-fluid">Anxiety</div>
-									<div class="panel-body latest row-fluid">{{ latest_entry.anxiety_level }}</div>
-								</div>
-							</div>
-							<div class="col-sm-2 info_panel">
-								<div class="panel panel-info">
-									<div class="panel-heading row-fluid">Motivation</div>
-									<div class="panel-body latest row-fluid">{{ latest_entry.motivation_level }}</div>
-								</div>
-							</div>
-							<div class="col-sm-2 info_panel">
-								<div class="panel panel-info">
-									<div class="panel-heading row-fluid">Energy</div>
-									<div class="panel-body latest row-fluid">{{ latest_entry.energy_level }}</div>
-								</div>
-							</div>
-							</div>
-						</div>
-					</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-offset-1 col-sm-10">
-							<div class="btn-group">
-								<a class="btn btn-success" href="{% url 'entry_edit' latest_entry.pk %}"/>Edit Entry</a>
-								<a class="btn btn-danger" href="{% url 'entry_delete' latest_entry.pk %}"/>Delete Entry</a>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
-
-				</div>
+				{% include "mood/entrys_panel.html" %}
 			</div>
 		</div>
 	</div>

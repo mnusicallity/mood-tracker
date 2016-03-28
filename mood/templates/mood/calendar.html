@@ -2,6 +2,13 @@
 
 {% block head_title %} Calendar View {% endblock %}
 
+{% block extra_head %}
+	{% load compress %}
+	{% compress js %}
+	    <script src="/static/mood/scripts/time.js"></script>
+	{% endcompress %}
+{% endblock %}
+
 {% block content %}
 
 		<div class="row-fluid">
@@ -9,4 +16,17 @@
 		</div>
 
 
+{% endblock %}
+
+{% block extra_body %}
+	<script>
+		window.onload = function() {
+			var x = get_cell();
+			var month = get_month().toString();
+			var current_month = {{ view.get_current_month }} ;
+			if(month.localeCompare(current_month.toString()) == 0){
+				$(x).addClass("is_today");
+			}
+		};
+	</script>
 {% endblock %}

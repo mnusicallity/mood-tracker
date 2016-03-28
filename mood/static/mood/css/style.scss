@@ -9,6 +9,8 @@ $entry-vertical-padding: 10px;
 $entry-horizontal-padding: 0px;
 $entry-panel-offset: 10px;
 
+$site-link-color: #FFCA6B;
+
 $content-size: 95%;
 
 $slider-handle-size: 8pt;
@@ -20,6 +22,10 @@ body{
 
 ul{
 	list-style: none;
+}
+
+a{
+	color: $site-link-color;
 }
 
 .entry_slider{
@@ -197,11 +203,17 @@ ul{
 
 .row{
 
+
+
 	.btn, textarea {
 		margin-top: 5px;
 		box-shadow: none;
 		text-shadow: none;
 		background-image: none;
+	}
+
+	.btn, .no_days_btn{
+		margin-top: 20px;
 	}
 
 	.panel, .panel-heading, .panel-body{
@@ -243,6 +255,10 @@ ul{
 		padding-left: 0px;
 		margin-top: 5px;
 		margin-bottom: 0px;
+	}
+
+	.entry_header{
+		height: 50px;
 	}
 
 
@@ -324,19 +340,25 @@ ul{
 
 .table-responsive{
 	width: 95%;
+	height: 83vh;
 	table-layout: fixed;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
 
+	th{
+		height: 40px;
+		text-align: center;
+	}
+
 	td{
 		height: 80px;
-		padding-left: 4px;
+		padding-left: 5px;
 		vertical-align: top;
 
 		p{
 			margin-bottom: 5px;
-			margin-top: 30px;
+			margin-top: 40px;
 
 		}
 	}
@@ -349,3 +371,5 @@ ul{
 		color: #FFA447;
 	}
 }
+
+
