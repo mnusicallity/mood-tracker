@@ -9,9 +9,9 @@ $entry-vertical-padding: 10px;
 $entry-horizontal-padding: 0px;
 $entry-panel-offset: 10px;
 
-$content-size: 90%;
+$content-size: 95%;
 
-$slider-handle-size: 7pt;
+$slider-handle-size: 8pt;
 
 
 body{
@@ -38,6 +38,10 @@ ul{
 		border: none;
 		box-shadow: none;
 	}
+
+	.panel-body, .panel{
+		background-color: $site-content-background-color;
+	}
 }
 
 .entry_label{
@@ -52,22 +56,33 @@ ul{
 	margin-left: auto;
 	margin-right: auto;
 
+	background: #FF8C37; /* For browsers that do not support gradients */
+  	background: -webkit-radial-gradient(#ffa866,  #FF8C37, #FF8C37); /* Safari 5.1 to 6.0 */
+  	background: -o-radial-gradient(#ffa866, #FF8C37, #FF8C37); /* For Opera 11.6 to 12.0 */
+  	background: -moz-radial-gradient(#ffa866, #FF8C37, #FF8C37); /* For Firefox 3.6 to 15 */
+  	background: radial-gradient(#ffa866, #FF8C37, #FF8C37); /* Standard syntax */
+
+
 	.ui-slider-handle{
 		width: 5em;
-		height: 2em;
 		margin-left: -3em;
 		font-size: $slider-handle-size;
+
+		.slider_handle{
+			height: 20px;
+			background-color: #5bc0de;
+			text-align: center;
+			vertical-align: middle;
+			font-size: $slider-handle-size+1;
+			word-wrap: break-word;
+			padding-top: 1px;
+			color: #ccffff;
+			font-weight: bold;
+
+		}
 	}
 
-	.slider_handle{
-		background-color: #e6e6e6;
-		text-align: center;
-		vertical-align: middle;
-		font-size: $slider-handle-size;
-		word-wrap: break-word;
-		padding-top: 0.2em;
-
-	}
+	
 
 		@media only screen and (min-width:1024px){
 			font-size: $slider-handle-size + 3;
@@ -93,8 +108,6 @@ ul{
 }
 
 .content_box{
-
-	padding-left: 0px;
 	padding-right: 25px;
 
 
@@ -129,10 +142,6 @@ ul{
 		width: $content-size;
 		margin-left: auto;
 		margin-right: auto;
-	}
-
-	div{
-		background-color: $site-content-background-color;
 	}
 
 	.entry_form_buttons{
@@ -188,8 +197,14 @@ ul{
 
 .row{
 
-	.btn, textarea{
+	.btn, textarea {
 		margin-top: 5px;
+		box-shadow: none;
+		text-shadow: none;
+		background-image: none;
+	}
+
+	.panel, .panel-heading, .panel-body{
 		box-shadow: none;
 		text-shadow: none;
 		background-image: none;
@@ -216,4 +231,121 @@ ul{
 
 .entry_fields {
 	margin-top: 5px;
+}
+
+.latest_date_panel{
+	padding-bottom: 20px;
+	background-color: #ffee80;
+	margin-left: 20px;
+	
+
+	h4{
+		padding-left: 0px;
+		margin-top: 5px;
+		margin-bottom: 0px;
+	}
+
+
+	.panel-heading{
+		
+	
+		.btn-group, .btn{
+			margin-top: -1px;
+			width: 40%;
+		}
+
+		.btn{
+			width: 30%;
+		}
+
+		h2{
+			white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    line-height: normal;
+		    width: 40%;
+		    padding-top: 7px;
+		}
+	}
+
+	.latest_date{
+
+		h2{
+			margin-top: 0px;
+		}
+
+	}
+
+	
+
+	.btn-group{
+		width: 100%;
+		margin-left: 9px;
+		padding-left: 7px;
+		margin-right: 0px;
+		padding-right: 7px;
+
+		.btn{
+			width: 49%;
+		}
+	}
+
+	.btn-group, .pull-right{
+		padding-right: 0px;
+	}
+
+	.info_panel{
+		padding-left: 2px;
+		padding-right: 2px;
+		text-align: center;
+
+		.panel-body{
+			background-color: #fff8e6;
+		}
+
+		.panel-heading{
+			font-weight: bold;
+			background-color:  #41b5d8;
+			color: white;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+		}
+
+		.panel{
+			border-radius: 0;
+		}
+	}
+}
+
+.today, .not_today{
+	display: none;
+	height: 52px;
+}
+
+.table-responsive{
+	width: 95%;
+	table-layout: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+
+	td{
+		height: 80px;
+		padding-left: 4px;
+		vertical-align: top;
+
+		p{
+			margin-bottom: 5px;
+			margin-top: 30px;
+
+		}
+	}
+
+	.is_today{
+		background-color: #41b5d8;
+	}
+
+	.today_link{
+		color: #FFA447;
+	}
 }

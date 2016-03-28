@@ -15,4 +15,38 @@ function time_of_day(which){
 			$("#id_tod").val("N");
 			break;
 	}
-}
+};
+
+function number_to_symbol(){
+	$('.latest').each(function() {
+    	switch($(this).html().toString()){
+    		case '-4':
+    			$(this).html("----");
+    			break;
+    		case '-3':
+    			$(this).html("---");
+    			break;
+    		case '-2':
+    			$(this).html("--");
+    			break;
+    		case '-1':
+    			$(this).html("-");
+    			break;
+    		case '0':
+    			$(this).html("Normal");
+    			break;
+    		case '1':
+    			$(this).html("+");
+    			break;
+    		case '2':
+    			$(this).html("++");
+    			break;
+    		case '3':
+    			$(this).html("+++");
+    			break;
+    		case '4':
+    			$(this).html("++++");
+    			break;
+    	}
+	});
+};

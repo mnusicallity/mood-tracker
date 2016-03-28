@@ -10,9 +10,16 @@ class Day(models.Model):
 		settings.AUTH_USER_MODEL,
 		on_delete=models.CASCADE,
         )
+	created = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return str(self.date)
+		return str(self.created) + " date: " + str(self.date)
+
+	def get_absolute_url(self):
+		return reverse('day', kwargs={'pk' : self.pk })
+
+	def get_add_url(self):
+		return reverse('day_add', kwargs={'user_id' : self.user.id })
 
 class Entry(models.Model):
 	description = models.CharField(max_length=200, null=True, blank=True)
@@ -22,6 +29,7 @@ class Entry(models.Model):
         )
 
 	tod = models.CharField(max_length=1, choices=TIME_OF_DAY_CHOICES)
+	created = models.DateTimeField(auto_now_add=True)
 
 	day = models.ForeignKey(Day, on_delete=models.CASCADE)
 

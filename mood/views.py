@@ -2,13 +2,19 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic import ListView
+from calendar import HTMLCalendar
 
 from django.http import Http404
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic.dates import MonthArchiveView
 
 from mood.models import Day, Entry
+
+from mood.DayCalendar import DayCalendar
+
+from django.utils.safestring import mark_safe
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -22,6 +28,20 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 	template_name = "mood/profile.html"
 	context_object_name = "user_profile"
 
+	def get_context_data(self, **kwargs):
+		context = super(ProfileView, self).get_context_data(**kwargs)
+
+		d = Day.objects.filter(user__id=self.request.user.id).latest('date')
+		e = Entry.objects.filter(day__id=d.id).order_by('-created')
+		context['latest_entryset'] = e
+		context['latest_day'] = d
+		context['latest_date'] = d.date
+		context['latest_day_value'] = d.date.day
+		return context
+
+	def get_user_id(self):
+		return self.request.user.id;
+
 	def get_username(self):
 		return self.request.user.get_username()
 
@@ -29,10 +49,18 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 		u = self.request.user
 		return u.get_full_name()
 
-	def get_latest_entry(self):
-		u = self.request.user
-		e = Entry.objects.filter(user__id=u.id).latest('id')
-		return e
+class DayCalendarView(LoginRequiredMixin, TemplateView):
+
+	template_name = "mood/calendar.html"
+ 
+	def show_calendar(self):
+		year = self.kwargs.get('year')
+		month = self.kwargs.get('month')
+		month_int = int(month)
+		year_int = int(year)
+		dayset = Day.objects.filter(user__id=self.request.user.id).order_by('-date')
+		cal = DayCalendar(dayset, self.request.user.id).formatmonth(year_int, month_int)
+		return mark_safe(cal)
 
 class EntryListView(LoginRequiredMixin, ListView):
 
@@ -70,9 +98,10 @@ class EntryCreate(LoginRequiredMixin, CreateView):
     	initial['anger_level']=0
     	initial['anxiety_level']=0
     	initial['energy_level']=0
-    	entryset = Entry.objects.filter(user__id=self.request.user.id).order_by('-id')
-    	if entryset:
-    		e = entryset[0]
+    	
+    	e = Entry.objects.filter(user__id=self.request.user.id).latest('created')
+
+    	if e:
 	    	initial['happiness_level'] = e.happiness_level
 	    	initial['motivation_level']  = e.motivation_level
 	    	initial['anger_level'] = e.anger_level
