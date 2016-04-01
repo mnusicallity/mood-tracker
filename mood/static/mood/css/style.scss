@@ -36,6 +36,21 @@ a{
 	margin-left: 15px;
 }
 
+.navbar{
+	background-image: none;
+	background-color: black;
+	border-radius: 0px;
+	margin-bottom: 15px;
+
+	.navbar-header{
+		margin-left: 30px;
+	}
+
+	.navbar-right{
+		margin-right: 10px;
+	}
+}
+
 .outer {
 	margin-left: auto;
 	margin-right: auto;
@@ -340,7 +355,7 @@ a{
 
 .table-responsive{
 	width: 95%;
-	height: 83vh;
+	height: 75vh;
 	table-layout: fixed;
 	margin-left: auto;
 	margin-right: auto;

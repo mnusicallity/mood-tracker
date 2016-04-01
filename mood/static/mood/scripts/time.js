@@ -13,3 +13,8 @@ function get_month(){
 	var now = new Date();
 	return now.getMonth() + 1;
 }
+
+function get_year(){
+	var now = new Date();
+	return now.getYear();
+}
