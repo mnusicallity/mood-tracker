@@ -8,6 +8,7 @@ class DayCalendar(HTMLCalendar):
 
 	def __init__(self, dayset, data):
 		super(DayCalendar, self).__init__()
+		print(data.kwargs)
 		self.dayset = self.group_by_day(dayset)
 		self.kwargs = data.kwargs
 		self.data = data

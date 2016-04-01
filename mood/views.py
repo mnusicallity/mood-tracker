@@ -69,18 +69,49 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 class DayCalendarView(LoginRequiredMixin, TemplateView):
 
 	template_name = "mood/calendar.html"
+
+	def get_prev_month(self):
+		month = int(self.kwargs.get('month'))
+		year = int(self.kwargs.get('year'))
+		if month == 1:
+			month = 12
+			year = year - 1
+		else:
+			month = month - 1
+
+		return [month, year]
+
+
+	def get_next_month(self):
+		month = int(self.kwargs.get('month'))
+		year = int(self.kwargs.get('year'))
+		if month == 12:
+			month = 1
+			year = year + 1
+		else:
+			month = month + 1
+
+		return [month, year]
+
+	def get_context_data(self, **kwargs):
+		context = super(DayCalendarView, self).get_context_data(**kwargs) 
+		context['prev_month'] = self.get_prev_month()[0]
+		context['prev_year'] = self.get_prev_month()[1]
+		context['next_month'] = self.get_next_month()[0]
+		context['next_year'] = self.get_next_month()[1]
+		return context
  
 	def show_calendar(self):
 		year = self.kwargs.get('year')
 		month = self.kwargs.get('month')
 		month_int = int(month)
 		year_int = int(year)
-		dayset = Day.objects.filter(user__id=self.request.user.id).order_by('-date')
+		dayset = Day.objects.filter(user__id=self.request.user.id).order_by('-date').filter(date__year=year_int).filter(date__month=month_int)
 		cal = DayCalendar(dayset, self).formatmonth(year_int, month_int)
 		return mark_safe(cal)
 
 	def get_current_month(self):
-		return date.today().month
+		return self.kwargs.get('month')
 
 
 class DayView(LoginRequiredMixin, TemplateView):
