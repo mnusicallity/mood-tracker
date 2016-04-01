@@ -1,0 +1,98 @@
+<div class="panel panel-primary latest_date_panel">
+					<div class="panel-heading row-fluid entry_header">
+						{% if latest_day %}
+							<h2 class="panel-title pull-left">Entries for: {{ latest_date }}.</h2>
+							<div class="pull-right btn-group">
+								<a class="btn btn-info" href="{% url 'day_month' latest_date.year latest_date.month %}">
+									View Calendar
+								</a>
+								<a class="btn btn-info" href="{% url 'entry_add' latest_day.id %}">
+									Add Entry to Day
+								</a>
+							</div>
+						{% else %}
+							<h2 class="panel-title pull-left">No dates yet!</h2>
+						{% endif %}
+					</div>
+					{% if latest_day %}
+						{% if latest_entryset|length == 0 %}
+							<div class="content_size">
+								<div class="row-fluid">
+									<h2>You haven't added any entries for this day yet!</h2>
+								</div>
+							</div>
+						{% endif %}
+						{% for latest_entry in latest_entryset %}
+						<div class="panel-body row">
+							<div class="content_size">
+							<div class="row-fluid">
+								<div class="col-sm-offset-1 latest_date">
+								
+									<h2>{{ latest_entry }}</h2>
+								</div>
+							</div>
+							{% if latest_entry.description %}
+							<div class="row">
+								<div class="col-sm-offset-1 col-sm-10 latest_desc">
+									<h4>{{ latest_entry.description }}</h4>
+								</div>
+							</div>
+						{% endif %}
+						<div class="row-fluid">
+							<div class="panel-group">
+							<div class="col-sm-offset-1 col-sm-2 info_panel">
+								<div class="panel panel-info">
+									<div class="panel-heading row-fluid">Happiness</div>
+									<div class="panel-body latest row-fluid">{{ latest_entry.happiness_level }}</div>
+								</div>
+							</div>
+							<div class="col-sm-2 info_panel">
+								<div class="panel panel-info">
+									<div class="panel-heading row-fluid">Anger</div>
+									<div class="panel-body latest row-fluid">{{ latest_entry.anger_level }}</div>
+								</div>
+							</div>
+							<div class="col-sm-2 info_panel">
+								<div class="panel panel-info">
+									<div class="panel-heading row-fluid">Anxiety</div>
+									<div class="panel-body latest row-fluid">{{ latest_entry.anxiety_level }}</div>
+								</div>
+							</div>
+							<div class="col-sm-2 info_panel">
+								<div class="panel panel-info">
+									<div class="panel-heading row-fluid">Motivation</div>
+									<div class="panel-body latest row-fluid">{{ latest_entry.motivation_level }}</div>
+								</div>
+							</div>
+							<div class="col-sm-2 info_panel">
+								<div class="panel panel-info">
+									<div class="panel-heading row-fluid">Energy</div>
+									<div class="panel-body latest row-fluid">{{ latest_entry.energy_level }}</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-offset-1 col-sm-10">
+							<div class="btn-group">
+								<a class="btn btn-success" href="{% url 'entry_edit' latest_entry.pk %}"/>Edit Entry</a>
+								<a class="btn btn-danger" href="{% url 'entry_delete' latest_entry.pk %}"/>Delete Entry</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			{% else %}
+			<div class="content_size">
+							<div class="row-fluid">
+								<div class="col-sm-offset-1 latest_date">
+									<a class="btn btn-info no_days_btn" href="{% url 'day_month' view.get_year view.get_month %}">
+										View Calendar
+									</a>
+								</div>
+							</div>
+				
+			{% endif %}
+		</div>
