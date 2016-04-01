@@ -25,7 +25,7 @@ SECRET_KEY = 'fc!cd8)h9gm$qtray8$r8t03l6(vpfr2$(sf2n^hnog$^bm8m8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.241.249.145']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mood',
         'USER': 'userperson',
-        'PASSWORD': 'illecram',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -159,4 +159,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/lucas/mood-tracker/static'
+STATIC_ROOT = '/static'
