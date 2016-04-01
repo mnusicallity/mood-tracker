@@ -9,7 +9,7 @@
 ##Step 2:
 
 Linux:
-`sudo apt-get install python-pip python-dev mysql-server libmysqlclient-dev`
+`sudo apt-get install python3-pip python3-dev mysql-server libmysqlclient-dev`
 
 `sudo mysql_install_db`
 
@@ -39,24 +39,24 @@ ensure you start the server
 `exit`
 
 ##Step 4:
-`sudo pip install virtualenv`
+`sudo pip3 install virtualenv`
 
 `virtualenv moodenv`
 
 `source moodenv/bin/activate`
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ##Step 5:
-`python manage.py makemigrations`
+`python3 manage.py makemigrations`
 
-`python manage.py migrate`
+`python3 manage.py migrate`
 
-`python manage.py createsuperuser`
+`python3 manage.py createsuperuser`
 
 follow the instructions to create superuser
 
-`python manage.py runserver`
+`python3 manage.py runserver`
 
 go to 127.0.0.1:8000
 
