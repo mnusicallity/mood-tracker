@@ -9,7 +9,7 @@ $entry-vertical-padding: 10px;
 $entry-horizontal-padding: 0px;
 $entry-panel-offset: 10px;
 
-$site-link-color: #FFCA6B;
+$site-link-color: #ffa600;
 
 $content-size: 95%;
 
@@ -48,6 +48,17 @@ a{
 
 	.navbar-right{
 		margin-right: 10px;
+	}
+}
+
+.signup {
+	.form-group{
+		p{
+			input[id^="id_"]{
+				float: right;
+				width: 70%;
+			}
+		}
 	}
 }
 
@@ -384,7 +395,7 @@ a{
 	}
 
 	.is_today{
-		background-color: #41b5d8;
+		background-color: #2bacd4;
 	}
 
 	.today_link{
