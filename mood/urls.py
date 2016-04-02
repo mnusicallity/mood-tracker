@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^accounts/', include('allauth.urls')),
     url(r'^accounts/profile/$', ProfileView.as_view(), name='profile'),
     url(r'^$',  RedirectView.as_view(pattern_name="profile"), name="index"),
+    url(r'^accounts/login_successful/', RedirectView.as_view(pattern_name="profile"), name="index"),
     url(r'^day/(?P<pk>[0-9]+)/$', DayView.as_view(), name='day'),
     url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/(?P<day>[0-9]{1,2})/add/(?P<pk>[0-9]+)/$', DayCreate.as_view(), name='day_add'),
     url(r'^entry/(?P<pk>[0-9]+)/$', EntryUpdate.as_view(), name='entry_edit'),
