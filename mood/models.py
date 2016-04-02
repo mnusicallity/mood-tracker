@@ -46,4 +46,18 @@ class Entry(models.Model):
 	def get_absolute_url(self):
 		return reverse('entry_edit', kwargs={'pk' : self.pk })
 
+class Attrib(models.Model):
+	user = models.ForeignKey(
+		settings.AUTH_USER_MODEL,
+		on_delete=models.CASCADE,
+        )
+	day = models.ForeignKey(Day, on_delete=models.CASCADE)
+	created = models.DateTimeField(auto_now_add=True)
+	name = models.CharField(max_length=130)
+	values = models.TextField()
+	track_daily = models.BooleanField(default=True)
+
+	def __str__(self):
+		return name
+
 
