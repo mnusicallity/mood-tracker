@@ -2,14 +2,8 @@
 					<div class="panel-heading row-fluid entry_header">
 						{% if latest_day %}
 							<h2 class="panel-title pull-left">Entries for: {{ latest_date }}.</h2>
-							<div class="pull-right btn-group">
-								<a class="btn btn-info" href="{% url 'day_month' latest_date.year latest_date.month %}">
-									View Calendar
-								</a>
-								<a class="btn btn-info" href="{% url 'entry_add' latest_day.id %}">
-									Add Entry to Day
-								</a>
-							</div>
+							<a class="btn btn-info pull-right" href="{% url 'entry_add' latest_day.id %}">Add Entry to Day
+							</a>
 						{% else %}
 							<h2 class="panel-title pull-left">No dates yet!</h2>
 						{% endif %}
@@ -85,14 +79,6 @@
 					{% endfor %}
 				</div>
 			{% else %}
-			<div class="content_size">
-							<div class="row-fluid">
-								<div class="col-sm-offset-1 latest_date">
-									<a class="btn btn-info no_days_btn" href="{% url 'day_month' view.get_year view.get_month %}">
-										View Calendar
-									</a>
-								</div>
-							</div>
 				
 			{% endif %}
 		</div>
