@@ -1,3 +1,5 @@
+{% load mood_extras %}
+
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
     <div class="navbar-header">
@@ -7,7 +9,8 @@
     </ul>
     {% if user.is_authenticated %}
     <ul class="nav navbar-nav navbar-right">
-    	<li><a href="/accounts/logout">Logout</a></li>
+        <li><a href="/{% calendar_year %}/{% calendar_month %}">Calendar &nbsp;<i class="fa fa-calendar"></i></a></li>
+    	<li><a href="/accounts/logout">Logout &nbsp;<i class="fa fa-sign-out"></i></a></li>
     </ul>
     {% endif %}
 	</div>
