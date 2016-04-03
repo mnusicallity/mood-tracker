@@ -25,7 +25,7 @@ class EntryAddForm(forms.ModelForm):
 		model = Entry
 		exclude = ['day','user']
 
-	description = forms.CharField(required=False, max_length=200, widget=forms.Textarea(attrs={'class':'form-control', 'placeholder':'Add a Short Description (Optional)', 'rows':'3'}))
+	description = forms.CharField(required=False, max_length=1000, widget=forms.Textarea(attrs={'class':'form-control', 'placeholder':'Add a Short Description (Optional)', 'rows':'3'}))
 
 	tod = forms.ChoiceField(choices = TIME_OF_DAY_CHOICES, label = "Time of Day", required=True, widget=forms.Select(attrs={'class':'entry_field'}))
 
