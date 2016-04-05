@@ -1,11 +1,11 @@
 <div class="panel panel-primary latest_date_panel">
 					<div class="panel-heading row-fluid entry_header">
 						{% if latest_day %}
-							<h2 class="panel-title pull-left">Entries for: {{ latest_date }}.</h2>
-							<a class="btn btn-info pull-right" href="{% url 'entry_add' latest_day.id %}">Add Entry to Day
+							<h2 class="panel-title">Entries for: {{ latest_date }}.</h2>
+							<a class="btn btn-info" href="{% url 'entry_add' latest_day.id %}">Add Entry to Day
 							</a>
 						{% else %}
-							<h2 class="panel-title pull-left">No dates yet!</h2>
+							<h2 class="panel-title">No dates yet!</h2>
 						{% endif %}
 					</div>
 					{% if latest_day %}
