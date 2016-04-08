@@ -16,8 +16,9 @@
         {% now "Y" as current_year %}
         {% now "n" as current_month %}
         <li><a href="{% url 'day_month' current_year current_month%}">Calendar &nbsp;<i class="fa fa-calendar"></i></a>
-    	<li><a href="/accounts/logout">Logout &nbsp;<i class="fa fa-sign-out"></i></a></li>
         {% endif %}
+        <li><a href="/accounts/logout">Logout &nbsp;<i class="fa fa-sign-out"></i></a></li>
+
     </ul>
     {% endif %}
 	</div>
