@@ -167,8 +167,10 @@ a{
 	}
 
 	background-color: $site-content-background-color;
-	min-height: 100vh;
+	min-height: 95vh;
 	height: 100%;
+	margin-bottom: 13px;
+	padding-bottom: 8px;
 
 	.content_size{
 		width: $content-size;

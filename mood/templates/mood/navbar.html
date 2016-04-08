@@ -9,6 +9,7 @@
     </ul>
     {% if user.is_authenticated %}
     <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'about' %}">About &nbsp;<i class="fa fa-info"></i></a></li>
         {% if calendar_year %}
         <li><a href="/{% calendar_year %}/{% calendar_month %}">Calendar &nbsp;<i class="fa fa-calendar"></i></a></li>
         {% else %}
