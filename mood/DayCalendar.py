@@ -38,7 +38,7 @@ class DayCalendar(HTMLCalendar):
 	def formatmonth(self, year, month, withyear=True):
 		self.year = year
 		self.month = month
-		v = ['<table class="month table-bordered table-responsive">']
+		v = ['<table class="table month table-bordered">']
 		v.append(self.formatmonthname(year, month, withyear=withyear))
 		v.append(self.formatweekheader())
 		for week in self.monthdays2calendar(year, month):
