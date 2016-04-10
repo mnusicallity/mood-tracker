@@ -2,30 +2,37 @@
 
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'profile' %}">Mood</a>
-    </div>
-    <ul class="nav navbar-nav">
-    </ul>
-    
-    {% if user.is_authenticated %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'about' %}">About &nbsp;<i class="fa fa-info"></i></a></li>
-        <li><a href="{% url 'news' %}">News &nbsp;<i class="fa fa-newspaper-o"></i></a></li>
-            {% if calendar_year %}
-                <li><a href="/{% calendar_year %}/{% calendar_month %}">Calendar &nbsp;<i class="fa fa-calendar"></i></a></li>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+          </button>
+          <a class="navbar-brand" href="{% url 'profile' %}">Mood</a>
+        </div>
+        <ul class="nav navbar-nav">
+        </ul>
+        
+        {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'about' %}">About &nbsp;<i class="fa fa-info"></i></a></li>
+                <li><a href="{% url 'news' %}">News &nbsp;<i class="fa fa-newspaper-o"></i></a></li>
+                    {% if calendar_year %}
+                        <li><a href="/{% calendar_year %}/{% calendar_month %}">Calendar &nbsp;<i class="fa fa-calendar"></i></a></li>
+                    {% else %}
+                        {% now "Y" as current_year %}
+                        {% now "n" as current_month %}
+                        <li><a href="{% url 'day_month' current_year current_month%}">Calendar &nbsp;<i class="fa fa-calendar"></i></a>
+                    {% endif %}
+                <li><a href="/accounts/logout">Logout &nbsp;<i class="fa fa-sign-out"></i></a></li>
+            </ul>
             {% else %}
-                {% now "Y" as current_year %}
-                {% now "n" as current_month %}
-                <li><a href="{% url 'day_month' current_year current_month%}">Calendar &nbsp;<i class="fa fa-calendar"></i></a>
-            {% endif %}
-        <li><a href="/accounts/logout">Logout &nbsp;<i class="fa fa-sign-out"></i></a></li>
-    </ul>
-    {% else %}
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'about' %}">About &nbsp;<i class="fa fa-info"></i></a></li>
-        <li><a href="{% url 'news' %}">News &nbsp;<i class="fa fa-newspaper-o"></i></a></li>
-    </ul>
-    {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'about' %}">About &nbsp;<i class="fa fa-info"></i></a></li>
+                <li><a href="{% url 'news' %}">News &nbsp;<i class="fa fa-newspaper-o"></i></a></li>
+            </ul>
+        </div>
+        {% endif %}
 	</div>
 </nav>
