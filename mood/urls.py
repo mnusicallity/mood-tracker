@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from django.views.generic import RedirectView, TemplateView
 
-from mood.views import ProfileView, DayView, EntryCreate, EntryUpdate, EntryDelete, DayCalendarView, DayCreate
+from mood.views import ProfileView, DayView, EntryCreate, EntryUpdate, EntryDelete, DayCalendarView, DayCreate, NewsView
 
 urlpatterns = [
 	url(r'^accounts/', include('allauth.urls')),
@@ -15,4 +15,6 @@ urlpatterns = [
     url(r'^entry/add/(?P<pk>[0-9]+)/$', EntryCreate.as_view(), name='entry_add'),
     url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', DayCalendarView.as_view(), name="day_month"),
     url(r'^about/$', TemplateView.as_view(template_name='mood/about.html'), name='about'),
+    url(r'^news/$', NewsView.as_view(), name='news'),
+
 ]
