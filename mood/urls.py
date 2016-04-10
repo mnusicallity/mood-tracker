@@ -16,5 +16,4 @@ urlpatterns = [
     url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', DayCalendarView.as_view(), name="day_month"),
     url(r'^about/$', TemplateView.as_view(template_name='mood/about.html'), name='about'),
     url(r'^news/$', NewsView.as_view(), name='news'),
-
 ]
