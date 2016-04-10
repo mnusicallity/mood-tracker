@@ -13,7 +13,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.dates import MonthArchiveView
 
-from mood.models import Day, Entry
+from mood.models import Day, Entry, News
 
 from mood.DayCalendar import DayCalendar
 
@@ -232,6 +232,15 @@ class EntryDelete(LoginRequiredMixin, DeleteView):
 			return super(EntryDelete, self).dispatch(request, *args, **kwargs)
 		else:
 			raise Http404("Not Found")
+
+class NewsView(ListView):
+
+	model = News
+	template_name = "mood/news.html"
+
+	def latest(self):
+		n = News.objects.latest('date')
+		return n
 
 
 class EntryUpdate(LoginRequiredMixin, UpdateView):

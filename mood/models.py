@@ -46,4 +46,14 @@ class Entry(models.Model):
 	def get_absolute_url(self):
 		return reverse('entry_edit', kwargs={'pk' : self.pk })
 
+class News(models.Model):
+	created = models.DateTimeField(auto_now_add=True)
+	date = models.DateField()
+	title = models.CharField(max_length=50)
+	content = models.CharField(max_length=1000)
+
+	def __str__(self):
+		return self.title
+
+
 
