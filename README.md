@@ -1,3 +1,7 @@
+#How do you feel?
+
+http://mood.marcelli.ca/about
+
 #Installation to help dev:
 
 ##Step 1:
