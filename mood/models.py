@@ -46,6 +46,20 @@ class Entry(models.Model):
 	def get_absolute_url(self):
 		return reverse('entry_edit', kwargs={'pk' : self.pk })
 
+class Attribute(models.Model):
+	created = models.DateTimeField(auto_now_add=True)
+	track_daily = models.BooleanField()
+	name = models.CharField(max_length=75)
+
+class Consumable(Attribute):
+	pass
+
+class Dietary(Consumable):
+	calories = models.DecimalField(max_digits=10, decimal_places=2)
+
+class Drink(Dietary):
+	volume = models.DecimalField(max_digits=10, decimal_places=2)
+
 
 class News(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
