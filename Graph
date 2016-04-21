@@ -1,0 +1,114 @@
+__author__ = "Conor Hamilton"
+
+
+#Create a list that is filled with lists called x_axis and the list to be appended is called y_axis.  These lists will be filled with"___" markers to plot a point on a graph.
+
+#x_axis list
+
+y_axis = []
+
+#loop to iterate through filling the list with lists
+
+for i in range(10):
+    #x_axis list
+    x_axis = []
+    #Use the append function to fill the x_axis list with lists
+    y_axis.append(x_axis)
+
+#Now fill the lists with their graph positions
+counter = 0
+for i in range(10,0,-1):
+#Use a variable to store x_axis pieces one at a time and set them equal to the counter variable.  This will set up the y_axis of the graph
+    new_list = y_axis[counter]
+    new_list.append(i)
+#Use a new with a counter other than i to fill the rest of the list up with "___" markers to represent the seven days of the week
+    for j in range(8,1,-1):
+        new_list.append("___")
+    counter += 1
+days = ["Mon","Tues","Wed","Thurs","Fri","Sat","Sun"]
+y_axis.append(days)
+
+#Loop through and print out the peices of the list of lists to show the graph
+def print_graph():
+    for i in range(11):
+        print y_axis[i]
+print_graph()
+
+def plot():
+#Take input from the user about the day of the week and store it in a variable
+    day_of_the_week = raw_input("What day of the week is it?")
+#Use an is lower function to make sure that capital or lowercase letters don't cause an error
+
+#Use an if statement to convert the day of the week to an integer
+    if day_of_the_week == "Monday":
+        #variable to be used to point to the second bucket in y_axis for the day of the week
+        day = 1
+    elif day_of_the_week == "Tuesday":
+#variable to be used to point to the third bucket in y_axis for the day of the week
+        day = 2
+    elif day_of_the_week == "Wednesday":
+#variable to be used to point to the fourth bucket in y_axis for the day of the week
+        day = 3
+    elif day_of_the_week == "Thursday":
+#variable to be used to point to the fifth bucket in y_axis for the day of the week
+        day = 4
+    elif day_of_the_week == "Friday":
+#variable to be used to point to the sixth bucket in y_axis for the day of the week
+        day = 5
+    elif day_of_the_week == "Saturday":
+#variable to be used to point to the seventh bucket in y_axis for the day of the week
+        day = 6
+    elif day_of_the_week == "Sunday":
+#variable to be used to point to the eighth bucket in y_axis for the day of the week
+        day = 7
+    else:
+#Error message
+#Could use a try except statement to get less errors and make sure it works when there is bad input
+        print "Invalid entry"
+
+#Get user input about mood
+    mood = raw_input("On a scale from 1-10 how was your day?")
+#convert string data to int data
+    mood = int(mood)
+#Use another if statement to plot the point on the graph
+    if mood == 1:
+        row = y_axis[9]
+        row[day] = "_x_"
+    elif mood == 2:
+        row = y_axis[8]
+        row[day] = "_x_"
+    elif mood == 3:
+        row = y_axis[7]
+        row[day] = '_x_'
+    elif mood == 4:
+        row = y_axis[6]
+        row[day] = '_x_'
+    elif mood == 5:
+        row = y_axis[5]
+        row[day] = '_x_'
+    elif mood == 6:
+        row = y_axis[4]
+        row[day] = '_x_'
+    elif mood == 7:
+        row = y_axis[3]
+        row[day] = '_x_'
+    elif mood == 8:
+        row = y_axis[2]
+        row[day] = '_x_'
+    elif mood == 9:
+        row = y_axis[1]
+        row[day] = '_x_'
+    elif mood == 10:
+        row = y_axis[0]
+        row[day] = '_x_'
+    else:
+        print "Invalid entry"
+
+    print_graph()
+
+
+for i in range(7):
+    plot()
+
+
+
